@@ -8,17 +8,17 @@ const BookDetails = () => {
   // Color mapping for figurative language items
   const getColorClass = (color) => {
     const colors = {
-      'accent-purple': 'border-purple-500 bg-purple-50',
-      'accent-blue': 'border-blue-500 bg-blue-50',
-      'accent-teal': 'border-teal-500 bg-teal-50',
-      'accent-yellow': 'border-yellow-500 bg-yellow-50',
-      'accent-pink': 'border-pink-500 bg-pink-50'
+      'accent-purple': 'border-accent-purple bg-purple-bg',
+      'accent-blue': 'border-secondary bg-secondary/10',
+      'accent-teal': 'border-primary bg-primary/5',
+      'accent-yellow': 'border-secondary bg-secondary/10',
+      'accent-pink': 'border-accent-purple bg-purple-bg'
     };
     return colors[color] || 'border-primary bg-primary/5';
   };
 
   return (
-    <section id="book" className="py-20 bg-gradient-to-b from-warm to-white">
+    <section id="book" className="py-20 bg-gradient-to-b from-white to-purple-bg/30">
       <div className="container-custom mx-auto">
         <div className="text-center mb-12">
           <h2 className="section-title">Two-Shoes And Me</h2>
@@ -28,14 +28,14 @@ const BookDetails = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="relative">
-            <div className="bg-gradient-to-br from-primary/5 via-accent-teal/10 to-accent-pink/10 rounded-2xl p-8 shadow-xl border-2 border-accent-yellow/50">
+            <div className="bg-gradient-to-br from-primary/5 via-secondary/10 to-accent-purple/10 rounded-2xl p-8 shadow-xl border-2 border-secondary/30">
               <div className="mb-6 relative">
                 <img 
                   src="/images/twoshoe.jpg"
                   alt="Two-Shoes And Me - Book Cover"
                   className="w-full max-w-sm mx-auto rounded-xl shadow-2xl border-4 border-white"
                 />
-                <div className="absolute -top-3 -right-3 bg-secondary text-white rounded-full p-2 shadow-lg">
+                <div className="absolute -top-3 -right-3 bg-secondary text-primary-dark rounded-full p-2 shadow-lg">
                   <FaStar size={16} />
                 </div>
               </div>
@@ -44,7 +44,6 @@ const BookDetails = () => {
                 <h3 className="text-2xl font-display font-bold text-primary mb-2">{book.fullTitle}</h3>
                 <div className="w-16 h-0.5 bg-secondary mx-auto my-2"></div>
                 
-                {/* Author and Illustrator Info */}
                 <div className="mt-3 space-y-1">
                   <p className="text-dark/70 text-sm">
                     <span className="font-semibold text-primary">Author:</span> {book.author}
@@ -62,13 +61,10 @@ const BookDetails = () => {
                 <p className="text-xs text-primary mt-2 font-semibold">🎨 A Colorful Learning Adventure 🎨</p>
               </div>
               
-              {/* Decorative colorful shoes */}
               <div className="flex justify-center gap-2 mt-4">
-                <div className="w-8 h-8 bg-accent-teal rounded-full opacity-50"></div>
-                <div className="w-8 h-8 bg-accent-pink rounded-full opacity-50"></div>
-                <div className="w-8 h-8 bg-accent-yellow rounded-full opacity-50"></div>
-                <div className="w-8 h-8 bg-accent-purple rounded-full opacity-50"></div>
+                <div className="w-8 h-8 bg-primary rounded-full opacity-50"></div>
                 <div className="w-8 h-8 bg-secondary rounded-full opacity-50"></div>
+                <div className="w-8 h-8 bg-accent-purple rounded-full opacity-50"></div>
               </div>
             </div>
           </div>
@@ -96,7 +92,7 @@ const BookDetails = () => {
               </div>
             </div>
 
-            <div className="bg-warm rounded-xl p-5 shadow-md mb-6 border-l-4 border-secondary">
+            <div className="bg-purple-bg rounded-xl p-5 shadow-md mb-6 border-l-4 border-secondary">
               <FaQuoteLeft className="text-secondary mb-2" size={24} />
               <p className="text-dark/70 italic mb-3 text-sm">
                 "Students will be able to read how figurative language is used in everyday conversations without the awareness of using such language. They will also be able to read and see how figurative language is being used in fiction writing."
@@ -108,14 +104,14 @@ const BookDetails = () => {
               </div>
             </div>
 
-            <div className="bg-primary/5 rounded-xl p-4 mb-6 border border-accent-teal/30">
+            <div className="bg-primary/5 rounded-xl p-4 mb-6 border border-secondary/30">
               <h4 className="font-semibold text-primary mb-2 flex items-center gap-2">
                 <FaGraduationCap size={18} />
                 Skills Young Readers Will Gain:
               </h4>
               <div className="flex flex-wrap gap-2">
                 {book.details.skillsDeveloped.map((skill, idx) => (
-                  <span key={idx} className="bg-white px-3 py-1 rounded-full text-sm text-dark/70 shadow-sm border border-accent-yellow">
+                  <span key={idx} className="bg-white px-3 py-1 rounded-full text-sm text-dark/70 shadow-sm border border-secondary/50">
                     {skill}
                   </span>
                 ))}
@@ -134,7 +130,7 @@ const BookDetails = () => {
             </div>
 
             <div className="text-center mt-4">
-              <div className="inline-flex items-center gap-2 text-sm text-dark/50 bg-warm px-4 py-2 rounded-full">
+              <div className="inline-flex items-center gap-2 text-sm text-dark/50 bg-purple-bg px-4 py-2 rounded-full">
                 <FaSmile className="text-secondary" />
                 <span>📚 {book.details.targetAudience}</span>
                 <FaSmile className="text-secondary" />

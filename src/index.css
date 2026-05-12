@@ -4,19 +4,19 @@
   --font-display: "Playfair Display", serif;
   --font-sans: "Inter", sans-serif;
   
-  /* Vibrant Two-Shoes Theme Colors */
-  --color-primary: #2D5A27;
-  --color-primary-dark: #1E3B1A;
-  --color-primary-light: #4A7A42;
-  --color-secondary: #FF6B35;
-  --color-accent-teal: #20B2AA;
-  --color-accent-purple: #9B59B6;
-  --color-accent-pink: #FF69B4;
-  --color-accent-yellow: #FFD700;
-  --color-accent-blue: #3498DB;
+  /* Yellow & Purple Theme for Ruby Ponder */
+  --color-primary: #6B21A5;
+  --color-primary-dark: #4A1D73;
+  --color-primary-light: #8B3FD4;
+  --color-secondary: #EAB308;
+  --color-secondary-dark: #CA8A04;
+  --color-secondary-light: #FDE047;
+  --color-accent-purple: #8B5CF6;
+  --color-accent-yellow: #FBBF24;
+  --color-dark: #2D1B4E;
   --color-light: #FFFFFF;
-  --color-warm: #FFFBF0;
-  --color-dark: #2C1810;
+  --color-warm: #FEFCE8;
+  --color-purple-bg: #F3E8FF;
 }
 
 @layer base {
@@ -46,8 +46,8 @@
   }
   
   .btn-secondary {
-    @apply bg-secondary text-white px-8 py-3 rounded-full font-semibold 
-           transition-all duration-300 hover:bg-secondary/80 hover:shadow-lg 
+    @apply bg-secondary text-primary-dark px-8 py-3 rounded-full font-semibold 
+           transition-all duration-300 hover:bg-secondary-dark hover:shadow-lg 
            transform hover:-translate-y-0.5;
   }
   
@@ -63,9 +63,5 @@
   
   .section-subtitle {
     @apply text-lg text-dark/60 text-center max-w-3xl mx-auto mb-12;
-  }
-  
-  .shoe-card {
-    @apply bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 border-2;
   }
 }
