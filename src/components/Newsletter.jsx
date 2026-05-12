@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaEnvelope, FaPaperPlane, FaBook, FaChild } from 'react-icons/fa';
+import { FaEnvelope, FaPaperPlane, FaBook, FaChild, FaStar } from 'react-icons/fa';
 import { authorData } from '../data/authorData';
 
 const Newsletter = () => {
@@ -16,7 +16,7 @@ const Newsletter = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-r from-primary to-primary-dark text-white">
+    <section id="contact" className="py-20 bg-primary text-white">
       <div className="container-custom mx-auto text-center">
         <div className="flex justify-center mb-4">
           <div className="bg-accent text-primary p-4 rounded-full">
@@ -43,7 +43,7 @@ const Newsletter = () => {
             className="flex-1 px-6 py-3 rounded-full text-dark outline-none focus:ring-2 focus:ring-accent bg-white"
             required
           />
-          <button type="submit" className="bg-accent hover:bg-accent/80 text-primary px-8 py-3 rounded-full font-semibold transition-all duration-300 flex items-center justify-center gap-2 transform hover:-translate-y-0.5">
+          <button type="submit" className="bg-accent hover:bg-accent-dark text-primary px-8 py-3 rounded-full font-semibold transition-all duration-300 flex items-center justify-center gap-2 transform hover:-translate-y-0.5">
             <FaPaperPlane size={18} />
             Subscribe
           </button>
@@ -55,10 +55,10 @@ const Newsletter = () => {
           </p>
         )}
 
-        <div className="flex items-center justify-center gap-2 mt-6 text-white/50 text-sm">
+        <div className="flex items-center justify-center gap-2 mt-6 text-white/60 text-sm">
           <FaChild size={12} />
           <span>Free resources for educators and parents</span>
-          <FaChild size={12} />
+          <FaStar size={12} />
         </div>
       </div>
     </section>

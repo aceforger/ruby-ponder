@@ -1,10 +1,10 @@
 import React from 'react';
-import { FaHeart, FaEnvelope, FaBook, FaTwitter, FaInstagram, FaFacebookF, FaYoutube } from 'react-icons/fa';
+import { FaHeart, FaEnvelope, FaBook, FaTwitter, FaInstagram, FaFacebookF, FaYoutube, FaStar } from 'react-icons/fa';
 import { authorData } from '../data/authorData';
 
 const Footer = () => {
   return (
-    <footer className="bg-dark text-white/80 py-10">
+    <footer className="bg-primary-dark text-white/80 py-10">
       <div className="container-custom mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-center md:text-left">
@@ -13,7 +13,11 @@ const Footer = () => {
               <h3 className="text-xl font-display font-bold text-white">Ruby Ponder</h3>
             </div>
             <p className="text-sm text-white/60">Children's Author | Educator</p>
-            <p className="text-xs text-white/40 mt-1">"Two-Shoe And Me"</p>
+            <p className="text-xs text-white/40 mt-1 flex items-center justify-center md:justify-start gap-1">
+              <FaStar size={10} className="text-accent" />
+              "Two-Shoe And Me"
+              <FaStar size={10} className="text-accent" />
+            </p>
           </div>
           
           <div className="flex gap-8 text-sm">

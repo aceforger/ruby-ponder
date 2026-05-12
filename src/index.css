@@ -4,17 +4,18 @@
   --font-display: "Playfair Display", serif;
   --font-sans: "Inter", sans-serif;
   
-  /* Yellow & Brown Theme */
-  --color-primary: #8B6914;
-  --color-primary-dark: #6B4F0A;
-  --color-primary-light: #C49B2A;
-  --color-secondary: #F5DEB3;
-  --color-accent: #FFD700;
-  --color-accent-light: #FFE44D;
+  /* Clean White & Light Yellow Theme with Brown Accents */
+  --color-primary: #6B4226;
+  --color-primary-dark: #4A2E1A;
+  --color-primary-light: #8B5E3C;
+  --color-secondary: #FFF9E6;
+  --color-accent: #F5E6B8;
+  --color-accent-light: #FFF5D4;
+  --color-accent-dark: #E8D5A8;
   --color-dark: #3E2723;
-  --color-light: #FFFDF5;
-  --color-cream: #FFF8E7;
-  --color-gold: #DAA520;
+  --color-light: #FFFFFF;
+  --color-warm: #FFF8E7;
+  --color-gold: #D4A373;
 }
 
 @layer base {
@@ -23,7 +24,7 @@
   }
   
   body {
-    @apply bg-light text-dark;
+    @apply bg-white text-dark;
     font-family: 'Inter', sans-serif;
   }
   
@@ -54,6 +55,10 @@
   }
   
   .section-subtitle {
-    @apply text-lg text-dark/70 text-center max-w-3xl mx-auto mb-12;
+    @apply text-lg text-dark/60 text-center max-w-3xl mx-auto mb-12;
+  }
+  
+  .card {
+    @apply bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-accent/30;
   }
 }
