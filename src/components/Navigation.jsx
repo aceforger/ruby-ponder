@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaBars, FaTimes, FaHome, FaUser, FaBook, FaEnvelope, FaStar, FaSmile } from 'react-icons/fa';
+import { FaBars, FaTimes, FaHome, FaUser, FaBook, FaEnvelope, FaStar, FaSmile, FaShoePrints } from 'react-icons/fa';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -57,8 +57,11 @@ const Navigation = () => {
           className="flex items-center gap-2 group cursor-pointer"
           onClick={(e) => handleClick(e, '#home', 'home')}
         >
-          <FaStar className="text-primary group-hover:scale-110 transition-transform duration-300" size={22} />
-          <span className="text-xl md:text-2xl font-display font-bold text-primary">
+          <div className="relative">
+            <FaShoePrints className="text-secondary group-hover:scale-110 transition-transform duration-300" size={22} />
+            <FaStar className="text-accent-yellow absolute -top-2 -right-2 text-xs opacity-0 group-hover:opacity-100 transition-all duration-300" />
+          </div>
+          <span className="text-xl md:text-2xl font-display font-bold bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
             Ruby Ponder
           </span>
         </a>
@@ -71,8 +74,8 @@ const Navigation = () => {
               onClick={(e) => handleClick(e, item.href, item.id)}
               className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 ${
                 activeTab === item.id
-                  ? 'bg-primary text-white shadow-md'
-                  : 'text-dark/70 hover:text-primary hover:bg-accent/30'
+                  ? 'bg-secondary text-white shadow-md'
+                  : 'text-dark/70 hover:text-secondary hover:bg-accent-yellow/20'
               }`}
             >
               {item.icon}
@@ -82,7 +85,7 @@ const Navigation = () => {
         </div>
 
         <button 
-          className="md:hidden text-primary p-2 rounded-lg hover:bg-accent/30 transition-all duration-300"
+          className="md:hidden text-secondary p-2 rounded-lg hover:bg-accent-yellow/20 transition-all duration-300"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
@@ -90,7 +93,7 @@ const Navigation = () => {
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-accent animate-slide-down">
+        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-accent-yellow animate-slide-down">
           <div className="flex flex-col gap-2 py-4 px-6">
             {navItems.map((item) => (
               <a
@@ -98,8 +101,8 @@ const Navigation = () => {
                 href={item.href}
                 className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 ${
                   activeTab === item.id
-                    ? 'bg-primary text-white font-semibold'
-                    : 'text-dark/70 hover:text-primary hover:bg-accent/30'
+                    ? 'bg-secondary text-white font-semibold'
+                    : 'text-dark/70 hover:text-secondary hover:bg-accent-yellow/20'
                 }`}
                 onClick={(e) => handleClick(e, item.href, item.id)}
               >
@@ -107,17 +110,17 @@ const Navigation = () => {
                 <span className="text-base">{item.name}</span>
                 {activeTab === item.id && (
                   <span className="ml-auto">
-                    <FaSmile size={16} className="text-accent" />
+                    <FaSmile size={16} className="text-accent-yellow" />
                   </span>
                 )}
               </a>
             ))}
             
-            <div className="mt-4 pt-4 border-t border-accent text-center">
+            <div className="mt-4 pt-4 border-t border-accent-yellow text-center">
               <p className="text-dark/50 text-xs flex items-center justify-center gap-2">
-                <FaBook size={10} className="text-primary" />
-                Making Figurative Language Fun for Young Readers
-                <FaStar size={10} className="text-primary" />
+                <FaShoePrints size={10} className="text-secondary" />
+                Two-Shoes Learning Adventure
+                <FaStar size={10} className="text-accent-yellow" />
               </p>
             </div>
           </div>

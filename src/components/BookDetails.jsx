@@ -1,43 +1,74 @@
 import React from 'react';
-import { FaBook, FaStar, FaQuoteLeft, FaGraduationCap, FaChild, FaSmile, FaComments, FaHeart } from 'react-icons/fa';
+import { FaBook, FaStar, FaQuoteLeft, FaGraduationCap, FaChild, FaSmile, FaComments, FaHeart, FaUser, FaPaintBrush } from 'react-icons/fa';
 import { authorData } from '../data/authorData';
 
 const BookDetails = () => {
   const book = authorData.book;
 
+  // Color mapping for figurative language items
+  const getColorClass = (color) => {
+    const colors = {
+      'accent-purple': 'border-purple-500 bg-purple-50',
+      'accent-blue': 'border-blue-500 bg-blue-50',
+      'accent-teal': 'border-teal-500 bg-teal-50',
+      'accent-yellow': 'border-yellow-500 bg-yellow-50',
+      'accent-pink': 'border-pink-500 bg-pink-50'
+    };
+    return colors[color] || 'border-primary bg-primary/5';
+  };
+
   return (
-    <section id="book" className="py-20 bg-white">
+    <section id="book" className="py-20 bg-gradient-to-b from-warm to-white">
       <div className="container-custom mx-auto">
         <div className="text-center mb-12">
-          <h2 className="section-title">Two-Shoe And Me</h2>
-          <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
-          <p className="section-subtitle">Where Figurative Language Comes to Life for Young Readers</p>
+          <h2 className="section-title">Two-Shoes And Me</h2>
+          <div className="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+          <p className="section-subtitle">A Colorful Journey Through Figurative Language</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="relative">
-            <div className="bg-warm rounded-2xl p-8 shadow-xl border-2 border-accent">
+            <div className="bg-gradient-to-br from-primary/5 via-accent-teal/10 to-accent-pink/10 rounded-2xl p-8 shadow-xl border-2 border-accent-yellow/50">
               <div className="mb-6 relative">
                 <img 
                   src="/images/twoshoe.jpg"
-                  alt="Two-Shoe And Me - Book Cover"
+                  alt="Two-Shoes And Me - Book Cover"
                   className="w-full max-w-sm mx-auto rounded-xl shadow-2xl border-4 border-white"
                 />
-                <div className="absolute -top-3 -right-3 bg-primary text-white rounded-full p-2 shadow-lg">
+                <div className="absolute -top-3 -right-3 bg-secondary text-white rounded-full p-2 shadow-lg">
                   <FaStar size={16} />
                 </div>
               </div>
               
-              <div className="text-center bg-white rounded-xl p-4">
+              <div className="text-center bg-white rounded-xl p-5 shadow-md">
                 <h3 className="text-2xl font-display font-bold text-primary mb-2">{book.fullTitle}</h3>
-                <div className="w-16 h-0.5 bg-primary mx-auto my-2"></div>
-                <p className="text-dark/60 text-sm">By Ruby D. Ponder</p>
+                <div className="w-16 h-0.5 bg-secondary mx-auto my-2"></div>
+                
+                {/* Author and Illustrator Info */}
+                <div className="mt-3 space-y-1">
+                  <p className="text-dark/70 text-sm">
+                    <span className="font-semibold text-primary">Author:</span> {book.author}
+                  </p>
+                  <p className="text-dark/70 text-sm">
+                    <span className="font-semibold text-primary">Illustrator:</span> {book.illustrator}
+                  </p>
+                </div>
+                
                 <div className="flex justify-center gap-1 mt-3">
                   {[...Array(5)].map((_, i) => (
-                    <FaStar key={i} size={16} className="text-primary" />
+                    <FaStar key={i} size={16} className="text-secondary" />
                   ))}
                 </div>
-                <p className="text-xs text-primary mt-2">Elementary Level Reader (Ages 6-10)</p>
+                <p className="text-xs text-primary mt-2 font-semibold">🎨 A Colorful Learning Adventure 🎨</p>
+              </div>
+              
+              {/* Decorative colorful shoes */}
+              <div className="flex justify-center gap-2 mt-4">
+                <div className="w-8 h-8 bg-accent-teal rounded-full opacity-50"></div>
+                <div className="w-8 h-8 bg-accent-pink rounded-full opacity-50"></div>
+                <div className="w-8 h-8 bg-accent-yellow rounded-full opacity-50"></div>
+                <div className="w-8 h-8 bg-accent-purple rounded-full opacity-50"></div>
+                <div className="w-8 h-8 bg-secondary rounded-full opacity-50"></div>
               </div>
             </div>
           </div>
@@ -54,7 +85,7 @@ const BookDetails = () => {
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {book.figurativeLanguage.map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-3 bg-warm rounded-lg p-3 shadow-md border-l-4 border-primary">
+                  <div key={idx} className={`flex items-center gap-3 rounded-lg p-3 shadow-md border-l-4 ${getColorClass(item.color)}`}>
                     <span className="text-2xl">{item.icon}</span>
                     <div>
                       <p className="font-semibold text-primary text-sm">{item.name}</p>
@@ -65,22 +96,26 @@ const BookDetails = () => {
               </div>
             </div>
 
-            <div className="bg-warm rounded-xl p-5 shadow-md mb-6 border-l-4 border-primary">
-              <FaQuoteLeft className="text-primary mb-2" size={24} />
+            <div className="bg-warm rounded-xl p-5 shadow-md mb-6 border-l-4 border-secondary">
+              <FaQuoteLeft className="text-secondary mb-2" size={24} />
               <p className="text-dark/70 italic mb-3 text-sm">
                 "Students will be able to read how figurative language is used in everyday conversations without the awareness of using such language. They will also be able to read and see how figurative language is being used in fiction writing."
               </p>
-              <FaHeart className="text-primary mt-2" size={16} />
+              <div className="flex items-center gap-2 mt-2">
+                <FaHeart className="text-secondary" size={14} />
+                <span className="text-xs text-primary">Perfect for elementary classrooms</span>
+                <FaHeart className="text-secondary" size={14} />
+              </div>
             </div>
 
-            <div className="bg-primary/5 rounded-xl p-4 mb-6 border border-accent">
+            <div className="bg-primary/5 rounded-xl p-4 mb-6 border border-accent-teal/30">
               <h4 className="font-semibold text-primary mb-2 flex items-center gap-2">
                 <FaGraduationCap size={18} />
                 Skills Young Readers Will Gain:
               </h4>
               <div className="flex flex-wrap gap-2">
                 {book.details.skillsDeveloped.map((skill, idx) => (
-                  <span key={idx} className="bg-white px-3 py-1 rounded-full text-sm text-dark/70 shadow-sm border border-accent">
+                  <span key={idx} className="bg-white px-3 py-1 rounded-full text-sm text-dark/70 shadow-sm border border-accent-yellow">
                     {skill}
                   </span>
                 ))}
@@ -88,9 +123,9 @@ const BookDetails = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="btn-primary flex-1 text-center flex items-center justify-center gap-2">
+              <button className="btn-secondary flex-1 text-center flex items-center justify-center gap-2">
                 <FaBook size={16} />
-                Buy Two-Shoe And Me
+                Buy Two-Shoes And Me
               </button>
               <button className="btn-outline flex-1 text-center flex items-center justify-center gap-2">
                 <FaChild size={16} />
@@ -99,10 +134,10 @@ const BookDetails = () => {
             </div>
 
             <div className="text-center mt-4">
-              <div className="inline-flex items-center gap-2 text-sm text-dark/50">
-                <FaSmile className="text-primary" />
-                <span>Perfect for classroom & home use</span>
-                <FaSmile className="text-primary" />
+              <div className="inline-flex items-center gap-2 text-sm text-dark/50 bg-warm px-4 py-2 rounded-full">
+                <FaSmile className="text-secondary" />
+                <span>📚 {book.details.targetAudience}</span>
+                <FaSmile className="text-secondary" />
               </div>
             </div>
           </div>
